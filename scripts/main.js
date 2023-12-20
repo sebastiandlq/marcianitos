@@ -1,8 +1,8 @@
 import { update as updatePlayer, draw as drawPlayer } from "./player.js"
 
 const canvas = document.querySelector('canvas')
-canvas.width=500
-canvas.height=500
+canvas.width=1300
+canvas.height=731
 
 const ctx = canvas.getContext('2d')
 
@@ -20,6 +20,7 @@ function main(currentTime){
         lastRenderTime = currentTime
     }
 }
+scaleCanvas()
 
 function update(){
     updatePlayer()
@@ -28,6 +29,12 @@ function update(){
 function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawPlayer(ctx)
+}
+
+function scaleCanvas(){
+    /*let scalator = screen.width / canvas.width
+    canvas.style.transform = `scale(${scalator})`
+    console.log("Escalado a: ", scalator)*/
 }
 
 window.requestAnimationFrame(main)

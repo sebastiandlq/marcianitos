@@ -3,12 +3,12 @@ let lastDirection = {x: 0}
 
 addEventListener('keydown', e => {
     switch(e.key){
-        case 'ArrowRight':
+        case 'D':
             if(lastDirection.x !== 1){
                 inputDirection.x = 1
             }
             break;
-        case 'ArrowLeft':
+        case 'A':
             if(lastDirection.x !== -1){
                 inputDirection.x = -1;
             }
@@ -18,8 +18,8 @@ addEventListener('keydown', e => {
 
 addEventListener('keyup', e => {
     switch(e.key){
-        case 'ArrowRight':
-        case 'ArrowLeft':
+        case 'A':
+        case 'D':
             if(lastDirection.x !== 0){
                 inputDirection.x = 0;
             }
