@@ -14,14 +14,12 @@ export class Enemy{
     }
 
     update(){
-        this.x += this.speed * (this.goingRight? 1 : -1)
-        this.checkOutOfBorder()
-        console.log(this.x, this.y);
         this.shotCounter++
         if(this.shotCounter >= this.shotInterval){
             this.shot()
             this.shotCounter = 0
         }
+        this.x += this.speed * (this.goingRight? 1 : -1)
     }
 
     draw(gameCanvas){
@@ -30,9 +28,10 @@ export class Enemy{
     }
 
     checkOutOfBorder(event){
-        if(this.x < 0 || this.x + this.WIDTH > canvas.width){
-            this.changeDirection()
+        if((this.x + this.speed < 0 && !this.goingRight) || (this.speed + this.x + this.WIDTH > canvas.width && this.goingRight)){
+            return true
         }
+        return false
     }
 
     changeDirection(){

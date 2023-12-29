@@ -31,16 +31,18 @@ export let enemyShots = []
 
 export function updateShots(){
     //Player Shots
-    playerShots.forEach(s => {
-        s.update()
+    playerShots.forEach((s, i) => {
+        if(s.update){
+            s.update()
+        }
         if(s.isOutOfBorder()){
-            //Investigar Slice para borrar bala
+           delete playerShots[i]
         }
     });
-    enemyShots.forEach(s => {
+    enemyShots.forEach((s, i) => {
         s.update()
         if(s.isOutOfBorder()){
-            //Investigar Slice para borrar bala
+            delete enemyShots[i]
         }
     });
 }
