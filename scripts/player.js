@@ -8,6 +8,8 @@ let y = 620
 const WIDTH = 64
 const HEIGHT = 80
 
+let hitPoints = 3
+
 export function update(){
     const inputDirection = getInputDirection();
     if((x + inputDirection.x * SPEED + WIDTH) < canvas.width && x + inputDirection.x * SPEED > 0){
@@ -19,6 +21,23 @@ export function update(){
 export function draw(gameCanvas){
     gameCanvas.fillStyle = 'blue'
     gameCanvas.fillRect(x, y, WIDTH, HEIGHT)
+}
+
+export function getPlayer(){
+    return {
+        WIDTH : WIDTH,
+        HEIGHT : HEIGHT,
+        x : x,
+        y: y
+    }
+}
+
+export function hit(){
+    hitPoints--
+}
+
+export function getHitPoints(){
+    return hitPoints
 }
 
 addEventListener('keypress', e => {

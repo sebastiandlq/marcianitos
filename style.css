@@ -7,9 +7,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 canvas{
-    width: 80vw;
-    height: 45vw; /*Mantaining a scale of 16:9*/
+    width: 70vw;
+    height: 39.375vw; /*Mantaining a scale of 16:9*/
     border: 2px solid black;
+}
+header{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }

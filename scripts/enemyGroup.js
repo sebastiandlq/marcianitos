@@ -1,7 +1,7 @@
 import { Enemy } from "./enemy.js"
 
-let horizontalSeparation = 150
-let verticalSeparation = 100
+let horizontalSeparation = 180
+let verticalSeparation = 160
 
 let xMargin = 50
 let yMargin = 20
@@ -13,7 +13,7 @@ export function spawnEnemies(rows, columns){
     for (let i = 0; i < rows; i++) {
         enemies[i] = new Array(columns)
         for (let j = 0; j < columns; j++) {
-            enemies[i][j] = new Enemy(xMargin+j*horizontalSeparation, yMargin+i*verticalSeparation, 5)
+            enemies[i][j] = new Enemy(xMargin+j*horizontalSeparation, yMargin+i*verticalSeparation, 3, 150)
         }
     }
 }

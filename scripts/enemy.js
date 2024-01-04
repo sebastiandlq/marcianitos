@@ -10,7 +10,7 @@ export class Enemy{
         this.speed = speed
         this.goingRight = goingRight
         this.shotInterval = shotInterval
-        this.shotCounter = 0
+        this.shotCounter = Math.floor(Math.random()*-300)
     }
 
     update(){
