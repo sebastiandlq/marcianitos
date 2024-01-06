@@ -8,6 +8,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: gray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 main{
     display: flex;
@@ -25,10 +27,21 @@ header{
 .movement-button{
     height: 39.375vw;
     width: 30px;
+    font-size: large;
+    border-radius: 30px;
+    background: aqua;
 }
 .shoot-button{
     width: 50vw;
     height: 30px;
+    font-size: large;
+    border-radius: 30px;
+    background: aqua;
+}
+#reset-game{
+    border-radius: 10px;
+    padding: 3px;
+    background-color: greenyellow;
 }
 .resource-images{
     display: none;
