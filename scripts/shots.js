@@ -1,13 +1,17 @@
 import { canvas } from "./main.js"
 
+
+const PLAYERSHOOT = document.querySelector('#playershoot')
+const ENEMYSHOOT = document.querySelector('#enemyshoot')
 export class Shots {
-    constructor(x = 0, y = 0, fromPlayer = false, speed = 50,  width = 15, height = 20){
+    constructor(x = 0, y = 0, fromPlayer = false, speed = 50, image,  width = 10, height = 20){
         this.x = x
         this.y = y
         this.WIDTH = width
         this.HEIGHT = height
         this.fromPlayer = fromPlayer
         this.speed = speed
+        this.imagesrc = image
     }
 
     update(){
@@ -15,8 +19,12 @@ export class Shots {
     }
 
     draw(gameCanvas){
-        gameCanvas.fillStyle = 'black'
-        gameCanvas.fillRect(this.x, this.y, this.WIDTH, this.HEIGHT)
+        if(this.imagesrc){
+            gameCanvas.drawImage(this.imagesrc, this.x, this.y)
+        }else{
+            gameCanvas.fillStyle = 'black'
+            gameCanvas.fillRect(this.x, this.y, this.WIDTH, this.HEIGHT)
+        }
     }
 
     isOutOfBorder(){
@@ -56,13 +64,13 @@ export function drawShots(gameCanvas){
 }
 
 export function PlayerShot(x, y, WIDTH, HEIGHT){
-    let shot = new Shots(x + WIDTH/2 - 7.5, y + HEIGHT/2, true)
+    let shot = new Shots(x + WIDTH/2 - 7.5, y + HEIGHT/2, true, 50, PLAYERSHOOT)
     playerShots.push(shot)
 }
 
 //EnemyShots
 
 export function EnemyShot(x, y, WIDTH, HEIGHT){
-    let shot = new Shots(x + WIDTH/2 - 7.5, y + HEIGHT/2, false, 10)
+    let shot = new Shots(x + WIDTH/2 - 7.5, y + HEIGHT/2, false, 10, ENEMYSHOOT)
     enemyShots.push(shot)
 }

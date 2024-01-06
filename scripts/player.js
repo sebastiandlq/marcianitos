@@ -12,6 +12,9 @@ const HEIGHT = 80
 
 const SHOOT_BUTTON = document.querySelector('#shoot')
 
+//PlayerSprite
+const PLAYER = document.querySelector('#player')
+
 let hitPoints = 5
 
 export function update(){
@@ -24,8 +27,12 @@ export function update(){
 }
 
 export function draw(gameCanvas){
-    gameCanvas.fillStyle = 'blue'
-    gameCanvas.fillRect(x, y, WIDTH, HEIGHT)
+    if(PLAYER){
+        gameCanvas.drawImage(PLAYER, x, y)
+    }else{
+        gameCanvas.fillStyle = 'blue'
+        gameCanvas.fillRect(x, y, WIDTH, HEIGHT)
+    }
 }
 
 export function getPlayer(){

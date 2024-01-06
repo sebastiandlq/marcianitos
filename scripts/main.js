@@ -11,6 +11,8 @@ canvas.height=731
 const LIVES = document.getElementById('lives')
 const SCORE = document.getElementById('score')
 const RESET_BUTTON = document.querySelector('#reset-game')
+//Graphics
+const BACKGROUND = document.querySelector('#background')
 //Canvas
 const ctx = canvas.getContext('2d')
 
@@ -46,6 +48,7 @@ function update(){
 
 function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    drawBackground()
     drawPlayer(ctx)
     enemiesDraw(ctx)
     drawShots(ctx)
@@ -102,6 +105,12 @@ function start(){
     spawnEnemies(3, 5)
     updateInterface()
     window.requestAnimationFrame(main)
+}
+
+function drawBackground(){
+    ctx.fillStyle = 'black'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    ctx.drawImage(BACKGROUND, 0, 0)
 }
 
 start()

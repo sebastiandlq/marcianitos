@@ -2,7 +2,7 @@ import { canvas } from "./main.js"
 import { EnemyShot } from "./shots.js"
 
 export class Enemy{
-    constructor(x = 0, y = 0, speed = 50, shotInterval = 150, width = 64, height = 80, goingRight = true){
+    constructor(x = 0, y = 0, speed = 50, shotInterval = 150, image, width = 64, height = 80, goingRight = true){
         this.x = x
         this.y = y
         this.WIDTH = width
@@ -11,6 +11,7 @@ export class Enemy{
         this.goingRight = goingRight
         this.shotInterval = shotInterval
         this.shotCounter = Math.floor(Math.random()*-300)
+        this.imagesrc = image
     }
 
     update(){
@@ -23,8 +24,12 @@ export class Enemy{
     }
 
     draw(gameCanvas){
-        gameCanvas.fillStyle = 'red'
-        gameCanvas.fillRect(this.x, this.y, this.WIDTH, this.HEIGHT)
+        if(this.imagesrc){
+            gameCanvas.drawImage(this.imagesrc, this.x, this.y)
+        }else{
+            gameCanvas.fillStyle = 'red'
+            gameCanvas.fillRect(this.x, this.y, this.WIDTH, this.HEIGHT)
+        }
     }
 
     checkOutOfBorder(event){

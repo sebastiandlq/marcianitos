@@ -6,6 +6,11 @@ let verticalSeparation = 160
 let xMargin = 50
 let yMargin = 20
 
+//Sprites
+const ENEMY_1 = document.querySelector('#enemy1')
+const ENEMY_2 = document.querySelector('#enemy2')
+const ENEMY_3 = document.querySelector('#enemy3')
+
 export let enemies
 
 export function spawnEnemies(rows, columns){
@@ -13,7 +18,19 @@ export function spawnEnemies(rows, columns){
     for (let i = 0; i < rows; i++) {
         enemies[i] = new Array(columns)
         for (let j = 0; j < columns; j++) {
-            enemies[i][j] = new Enemy(xMargin+j*horizontalSeparation, yMargin+i*verticalSeparation, 3, 150)
+            let enemySprite
+            switch(i){
+                case 0:
+                    enemySprite = ENEMY_1
+                    break
+                case 1:
+                    enemySprite = ENEMY_2
+                    break
+                case 2:
+                    enemySprite = ENEMY_3
+                    break
+            }
+            enemies[i][j] = new Enemy(xMargin+j*horizontalSeparation, yMargin+i*verticalSeparation, 3, 150, enemySprite)
         }
     }
 }

@@ -49,10 +49,16 @@ function stopMoving(){
     }
 }
 
+//Only Desktop
 LEFT_BUTTON.addEventListener('mousedown', moveLeft)
 RIGHT_BUTTON.addEventListener('mousedown', moveRight)
 LEFT_BUTTON.addEventListener('mouseup', stopMoving)
 RIGHT_BUTTON.addEventListener('mouseup', stopMoving)
+//Mobile
+LEFT_BUTTON.addEventListener('touchstart', moveLeft)
+RIGHT_BUTTON.addEventListener('touchstart', moveRight)
+LEFT_BUTTON.addEventListener('touchend', stopMoving)
+RIGHT_BUTTON.addEventListener('touchend', stopMoving)
 
 
 export function getInputDirection(){

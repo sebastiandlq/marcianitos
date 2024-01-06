@@ -30,3 +30,6 @@ header{
     width: 50vw;
     height: 30px;
 }
+.resource-images{
+    display: none;
+}
