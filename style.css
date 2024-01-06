@@ -9,6 +9,9 @@ body{
     align-items: center;
     flex-direction: column;
 }
+main{
+    display: flex;
+}
 canvas{
     width: 70vw;
     height: 39.375vw; /*Mantaining a scale of 16:9*/
@@ -18,4 +21,12 @@ header{
     display: flex;
     width: 100%;
     justify-content: space-around;
+}
+.movement-button{
+    height: 39.375vw;
+    width: 30px;
+}
+.shoot-button{
+    width: 50vw;
+    height: 30px;
 }

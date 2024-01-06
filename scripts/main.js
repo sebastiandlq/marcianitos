@@ -10,7 +10,7 @@ canvas.height=731
 //Interface
 const LIVES = document.getElementById('lives')
 const SCORE = document.getElementById('score')
-const RESET_BUTTON = document.querySelector('button')
+const RESET_BUTTON = document.querySelector('#reset-game')
 //Canvas
 const ctx = canvas.getContext('2d')
 

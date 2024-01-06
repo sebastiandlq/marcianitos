@@ -56,13 +56,13 @@ export function drawShots(gameCanvas){
 }
 
 export function PlayerShot(x, y, WIDTH, HEIGHT){
-    let shot = new Shots(x + WIDTH/2 - 10, y + HEIGHT/2, true)
+    let shot = new Shots(x + WIDTH/2 - 7.5, y + HEIGHT/2, true)
     playerShots.push(shot)
 }
 
 //EnemyShots
 
 export function EnemyShot(x, y, WIDTH, HEIGHT){
-    let shot = new Shots(x + WIDTH/2 - 10, y + HEIGHT/2, false, 10)
+    let shot = new Shots(x + WIDTH/2 - 7.5, y + HEIGHT/2, false, 10)
     enemyShots.push(shot)
 }
