@@ -61,6 +61,11 @@ export function draw(gameCanvas){
     });
 }
 
+export function resetEnemies(rows, columns){
+    enemies = undefined
+    spawnEnemies(rows, columns)
+}
+
 function checkSeparation(){
     //This function looks for enemies that are gettin closer, it happens as a bug and this function checks and corrects if it happens
     for (let i = 0; i < enemies.length; i++) {

@@ -1,7 +1,7 @@
-import { update as updatePlayer, draw as drawPlayer, getPlayer, hit, getHitPoints } from "./player.js"
+import { update as updatePlayer, draw as drawPlayer, getPlayer, hit, getHitPoints, resetPlayer } from "./player.js"
 import { checkCollision } from "./collisions.js"
-import { drawShots, enemyShots, playerShots, updateShots } from "./shots.js"
-import { spawnEnemies, update as enemiesUpdate, draw as enemiesDraw, enemies } from "./enemyGroup.js"
+import { drawShots, enemyShots, playerShots, resetShots, updateShots } from "./shots.js"
+import { spawnEnemies, update as enemiesUpdate, draw as enemiesDraw, enemies, resetEnemies } from "./enemyGroup.js"
 
 export const canvas = document.querySelector('canvas')
 canvas.width=1300
@@ -21,6 +21,8 @@ const GAMESPEED = 100
 
 let active = true
 let score = 0
+
+const ENEMY_ROWS = 3, ENEMY_COLUMNS = 5
 
 function main(currentTime){
     const secondsSinceLastRender = (currentTime - lastRenderTime)/1000;
@@ -98,11 +100,19 @@ function GameOver(){
 }
 
 function ResetGame(){
-    location.reload()
+    resetPlayer()
+    resetEnemies(ENEMY_ROWS, ENEMY_COLUMNS)
+    resetShots()
+    score = 0
+    updateInterface()
+    if(!active){
+        active = true
+        window.requestAnimationFrame(main)
+    }
 }
 
 function start(){
-    spawnEnemies(3, 5)
+    spawnEnemies(ENEMY_ROWS, ENEMY_COLUMNS)
     updateInterface()
     window.requestAnimationFrame(main)
 }

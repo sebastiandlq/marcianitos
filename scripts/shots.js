@@ -74,3 +74,8 @@ export function EnemyShot(x, y, WIDTH, HEIGHT){
     let shot = new Shots(x + WIDTH/2 - 7.5, y + HEIGHT/2, false, 10, ENEMYSHOOT)
     enemyShots.push(shot)
 }
+
+export function resetShots(){
+    playerShots = []
+    enemyShots= []
+}

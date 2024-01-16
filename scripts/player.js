@@ -10,12 +10,16 @@ let y = 620
 const WIDTH = 64
 const HEIGHT = 80
 
+//Initial Positions
+const INITIAL_X = x, INITIAL_Y = y
+
 const SHOOT_BUTTON = document.querySelector('#shoot')
 
 //PlayerSprite
 const PLAYER = document.querySelector('#player')
 
-let hitPoints = 5
+const INITIAL_HEALTH_POINTS = 5
+let hitPoints = INITIAL_HEALTH_POINTS
 
 export function update(){
     const inputDirection = getInputDirection();
@@ -50,6 +54,12 @@ export function hit(){
 
 export function getHitPoints(){
     return hitPoints
+}
+
+export function resetPlayer(){
+    x = INITIAL_X
+    y = INITIAL_Y
+    hitPoints = INITIAL_HEALTH_POINTS
 }
 
 function shoot(){
