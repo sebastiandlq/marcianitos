@@ -43,6 +43,22 @@ header{
     padding: 3px;
     background-color: greenyellow;
 }
+#pause{
+    font-size: 15px;
+    padding: 0;
+    background: none;
+    border: none;
+}
+#pause:active{
+    font-size: 10px;
+}
+#lives{
+    color: darkred;
+    font-weight: bolder;
+}
 .resource-images{
     display: none;
+}
+.interface-text{
+    width: 15%;
 }

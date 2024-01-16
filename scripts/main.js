@@ -11,6 +11,7 @@ canvas.height=731
 const LIVES = document.getElementById('lives')
 const SCORE = document.getElementById('score')
 const RESET_BUTTON = document.querySelector('#reset-game')
+const PAUSE_BUTTON = document.querySelector('#pause')
 //Graphics
 const BACKGROUND = document.querySelector('#background')
 //Canvas
@@ -90,8 +91,15 @@ function addScore(points) {
 }
 
 function updateInterface(){
-    LIVES.textContent = getHitPoints()
+    updateLives()
     SCORE.textContent = score
+}
+function updateLives(){
+    let livesText = "";
+    for(let i = 0; i < getHitPoints(); i++){
+        livesText += "|"
+    }
+    LIVES.textContent = livesText
 }
 
 function GameOver(){
@@ -123,6 +131,14 @@ function drawBackground(){
     ctx.drawImage(BACKGROUND, 0, 0)
 }
 
+function pauseGame(){
+    active = !active
+    if(active && getHitPoints() > 0){
+        window.requestAnimationFrame(main)
+    }
+}
+
 start()
 
 RESET_BUTTON.addEventListener('click', ResetGame)
+PAUSE_BUTTON.addEventListener('click', pauseGame)
